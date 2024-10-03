@@ -1,21 +1,16 @@
-import { useState } from "react";
-import Signup from "./components/Signup";
-import Login from "./components/Login";
+import { Routes, Route } from "react-router-dom";
+import Auth from "./Auth";
+import ProtectRoutes from "./components/ProtectRoutes";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
-  const [check, setCheck] = useState(true);
-
-  const handleClick = () => {
-    setCheck(!check);
-  };
-
   return (
-    <div>
-      {check ? <Signup /> : <Login />}
-      <div onClick={handleClick}>
-        {check ? <p>wanna login?</p> : <p>wanna sign up?</p>}
-      </div>
-    </div>
+    <Routes>
+      <Route path="/auth" element={<Auth />} />
+      <Route element={<ProtectRoutes />}>
+        <Route path="/" element={<Dashboard />}></Route>
+      </Route>
+    </Routes>
   );
 }
 

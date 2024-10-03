@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { account } from "../appwrite/appwrite";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const [user, setUser] = useState(null);
+    const [user, setUser] = useState(null);
+    const  navigate = useNavigate()
 
   async function Login(e) {
     e.preventDefault();
@@ -14,7 +16,8 @@ const Login = () => {
         email,
         password
       );
-      setUser(loggedIn);
+        setUser(loggedIn);
+        navigate("/")
       console.log(user);
     } catch (error) {
       console.error(error);

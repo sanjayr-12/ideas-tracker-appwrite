@@ -3,8 +3,8 @@ import { account } from "../appwrite/appwrite";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-    const [user, setUser] = useState(null);
-    const  navigate = useNavigate()
+  const [user, setUser] = useState(null);
+  const navigate = useNavigate();
 
   async function Login(e) {
     e.preventDefault();
@@ -16,14 +16,13 @@ const Login = () => {
         email,
         password
       );
-        setUser(loggedIn);
-        navigate("/")
+      setUser(loggedIn);
+      navigate("/");
       console.log(user);
     } catch (error) {
       console.error(error);
     }
   }
-
   return (
     <div>
       <form onSubmit={Login}>

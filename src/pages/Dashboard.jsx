@@ -1,6 +1,7 @@
 import { account } from "../appwrite/appwrite";
 import { useNavigate } from "react-router-dom";
 import { useStore } from "../store/auth";
+import { Ideas } from "./Ideas";
 
 const Dashboard = () => {
   const user = useStore((state) => state.user);
@@ -20,7 +21,9 @@ const Dashboard = () => {
   return (
     <div>
       <h1>Dashboard</h1>
+
       <button onClick={handleLogout}>Logout</button>
+      <Ideas />
     </div>
   );
 };
